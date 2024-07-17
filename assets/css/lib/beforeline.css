@@ -1,0 +1,15 @@
+.beforeline {
+    position: relative;
+    padding: 0 var(--space-4);
+}
+
+.beforeline:before {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 100%; /* 24px */
+    background-color: var(--accentColor);
+    content: "";
+    left: 0;
+    top: 0;
+}

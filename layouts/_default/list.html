@@ -1,0 +1,22 @@
+{{ define "customcss" }}
+  {{ partial "head/css.html" (dict "filename" "list.css") }}
+  {{ partial "head/css.html" (dict "filename" "summary.css") }}
+{{ end }}
+
+
+
+{{ define "main" }}
+<section class="hero content-container section-layout">
+  <h1 class="page-title">{{ .Title }}</h1>
+  <div class="page-description">
+      <p>
+          {{ .Description }}
+      </p>
+  </div>
+</section>
+<section class="content-container content-list">
+  {{ range .Pages }}
+    {{ .Render "summary" }}
+  {{ end }}
+</section>
+{{ end }}

@@ -1,0 +1,21 @@
+<article class="summary {{ if .Params.banner }} has-thumbnail {{ end }}">
+    {{ with .GetTerms "categories" }}
+    {{ with index . 0 }}
+    <h6 class="category"><a href='{{ .Permalink }}'>{{ .LinkTitle }}</a></h6>
+    {{ end }}
+    {{ end }}
+    <h1 class="title"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+    {{ partial "author-stub.html" . }}
+    <time class="post-date" datetime="{{ .Date }}">{{ .Date | time.Format ":date_medium" }}</time>
+    {{ if .Params.banner }}
+    {{ with partial "fetch-banner.html" . }}
+    <figure class="thumbnail">
+        <img src="{{ .RelPermalink }}" alt="thumbnail">
+    </figure>
+    {{ end }}
+    {{ end }}
+    <div class="summary-content">
+        <p>{{ .Summary }}</p>
+    </div>
+    {{ partial "readmore.html" . }}
+</article>

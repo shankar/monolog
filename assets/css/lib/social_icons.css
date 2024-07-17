@@ -1,0 +1,153 @@
+.icon-container {
+    --linkedinColor: #0a66c2;
+    --facebookColor: #0866ff;
+    --mediumColor: #000000;
+    --instagramColor: #E4405F;
+    --githubColor: #0d1117;
+    --mastodonColor: #6364ff;
+    --twitterColor: #169cf0;
+    --youtubeColor: #ff0000;
+    --discordColor: #5865f2;
+    --twitchColor: #a970ff;
+}
+
+.icon-container>.icon {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    border-radius: 50%;
+    background: var(--cardBackgroundColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.icon>.tooltip {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    background: var(--cardBackgroundColor);
+    color: var(--titleColor);
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.icon .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: var(--cardBackgroundColor);
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.icon:hover .tooltip {
+    top: -45px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.icon:hover span,
+.icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.icon.linkedin:hover,
+.icon.linkedin:hover .tooltip,
+.icon.linkedin:hover .tooltip::before {
+  background: var(--linkedinColor);
+  color: #ffffff;
+}
+
+.icon.facebook:hover,
+.icon.facebook:hover .tooltip,
+.icon.facebook:hover .tooltip::before {
+  background: var(--facebookColor);
+  color: #ffffff;
+}
+
+.icon.instagram:hover,
+.icon.instagram:hover .tooltip,
+.icon.instagram:hover .tooltip::before {
+  background: var(--instagramColor);
+  color: #ffffff;
+}
+
+.icon.medium:hover,
+.icon.medium:hover .tooltip,
+.icon.medium:hover .tooltip::before {
+  background: var(--mediumColor);
+  color: #ffffff;
+}
+
+.icon.twitter:hover,
+.icon.twitter:hover .tooltip,
+.icon.twitter:hover .tooltip::before {
+  background: var(--twitterColor);
+  color: #ffffff;
+}
+
+.icon.youtube:hover,
+.icon.youtube:hover .tooltip,
+.icon.youtube:hover .tooltip::before {
+  background: var(--youtubeColor);
+  color: #ffffff;
+}
+
+.icon.twitch:hover,
+.icon.twitch:hover .tooltip,
+.icon.twitch:hover .tooltip::before {
+  background: var(--twitchColor);
+  color: #ffffff;
+}
+
+.icon.discord:hover,
+.icon.discord:hover .tooltip,
+.icon.discord:hover .tooltip::before {
+  background: var(--discordColor);
+  color: #ffffff;
+}
+
+.icon.github:hover,
+.icon.github:hover .tooltip,
+.icon.github:hover .tooltip::before {
+  background: var(--githubColor);
+  color: #ffffff;
+}
+
+.icon.mastodon:hover,
+.icon.mastodon:hover .tooltip,
+.icon.mastodon:hover .tooltip::before {
+  background: var(--mastodonColor);
+  color: #ffffff;
+}
+
+.icon svg {
+    fill: var(--textColor);
+}
+
+.icon:hover svg {
+    fill: #ffffff;
+}
+
+footer .copyright {
+    padding: 0 var(--space-4);
+    display: flex;
+    justify-content: center;
+
+    >small {
+        text-align: center;
+    }
+}

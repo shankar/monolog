@@ -1,0 +1,73 @@
+@import "lib/reset";
+@import "lib/fonts";
+@import "lib/variables";
+@import "lib/theme";
+@import "lib/typography";
+@import "lib/hoverarrow";
+@import "lib/buttons";
+@import "lib/guide";
+@import "lib/social_icons";
+@import "lib/header";
+@import "lib/footer";
+
+body {
+    position: relative;
+    background: var(--backgroundColor);
+}
+header,
+main,
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header,
+main,
+section,
+footer {
+    position: relative;
+}
+
+.content-container {
+    width: calc(100% - (2 * var(--space-4)));
+    max-width: var(--layoutWidthMax);
+    margin-inline: var(--space-4);
+}
+
+.breadcrumbs {
+    padding: var(--space-2) 0;
+    > ol {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 600px) {
+    .breadcrumbs {
+        display: none;
+    }
+}
+
+.breadcrumb:last-child {
+    --accentColor: var(--linkHoverColor);
+    font-weight: var(--fontWeightSemibold);
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: default;
+}
+
+.breadcrumb:not(:last-child)::after {
+    content: '\203A';
+    color: var(--breadcrumbSeparatorColor);
+    padding-inline-start: var(--space-1);
+    padding-inline-end: var(--space-2);
+  
+}
+
+.card {
+    background: var(--cardBackgroundColor);
+    border: 1px solid var(--cardBorderColor);
+    border-radius: var(--cardBorderRadius);
+    box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25),0 8px 16px -8px rgba(0,0,0,0.3);
+}

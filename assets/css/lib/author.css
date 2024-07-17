@@ -1,0 +1,23 @@
+.author {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+}
+
+.author .avatar {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--avatarBorderColor);
+    border-radius: 50%;
+    background: var(--altBackgroundColor);
+}
+
+.author > .author-identity-gist {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name,
+.author-title {
+    line-height: 24px;
+}

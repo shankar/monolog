@@ -1,0 +1,90 @@
+@import 'beforeline';
+
+footer h6 {
+    font-size: 15px;
+    line-height: 28px;
+    font-weight: var(--fontWeightSemibold);
+}
+
+footer {
+    background: var(--footerBackgroundColor);
+}
+
+footer>.guide-container {
+    z-index: 0;
+}
+
+footer>.content-container {
+    z-index: 1;
+}
+
+.footer-content {
+    z-index: 2;
+    padding-top: calc(var(--space-8) + var(--space-9));
+    padding-bottom: calc(var(--space-8) + var(--space-9));
+    display: grid;
+    row-gap: var(--space-9);
+    grid-template-columns: repeat(var(--columnCount), 1fr);
+    grid-template-areas:
+        "subscribe"
+        "contact"
+        "social";
+}
+
+@media (min-width: 600px) {
+    .footer-content {
+        grid-template-areas:
+            "subscribe subscribe"
+            "contact   social";
+    }
+}
+
+@media (min-width: 900px) {
+    .footer-content {
+        grid-template-areas:
+            "subscribe subscribe contact social";
+    }
+}
+
+.footer-content>div {
+    display: grid;
+}
+
+.footer-content>.subscribe {
+    grid-area: subscribe;
+    padding: 0 var(--space-4);
+    row-gap: var(--space-4);
+    height: fit-content;
+}
+
+.footer-content>.contact {
+    grid-area: contact;
+    row-gap: var(--space-1);
+}
+
+.footer-content>.social {
+    grid-area: social;
+    row-gap: var(--space-4);
+}
+
+.footer-content>.contact,
+.footer-content>.social {
+    height: fit-content;
+    align-self: start;
+
+    >* {
+        padding: 0 var(--space-4);
+    }
+}
+
+.social>.icon-container {
+    display: flex;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+}
+
+@media (min-width: 900px) and (max-width: 1000px) {
+    .social>.icon-container {
+        column-gap: var(--space-3);
+    }
+}

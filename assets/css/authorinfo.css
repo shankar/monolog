@@ -1,0 +1,92 @@
+.author-summary {
+    display: grid;
+    row-gap: 16px;
+    grid-template-columns:repeat(var(--columnCount),1fr);
+}
+
+.author-name {
+    grid-area: name;
+}
+
+.author-whoami {
+    grid-area: whoami;
+}
+
+.author-description {
+    grid-area: about;
+    padding: 0 var(--space-4);
+}
+
+.author-image {
+    grid-area: image;
+}
+
+.author-post-stats {
+    grid-area: stats;
+    display: flex;
+    gap: var(--space-2);
+    > *  {
+        font-size: 16px;
+    }
+}
+
+.author-link {
+    grid-area: pagelink;
+    padding: 0 var(--space-4);
+}
+
+.author-summary {
+    grid-template-areas:
+        "whoami"
+        "name"
+        "image"
+        "about"
+        "stats"
+        "pagelink";
+}
+
+@media (min-width: 600px) {
+    .author-summary {
+        grid-template-areas:
+            "whoami    stats"
+            "name      name"
+            "about     image"
+            "pagelink  image"
+            ".         image";
+    }
+}
+
+@media (min-width: 900px) {
+    .author-summary {
+        grid-template-areas:
+            "whoami   .        .        stats"
+            "name     name     name     name"
+            "about    about    image    image"
+            "pagelink .        image    image"
+            ".        .        image    image"
+            ".        .        image    image";
+    }
+}
+
+.author-image > img {
+    border-radius: var(--cardBorderRadius);
+    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3);
+}
+
+.author-name {
+    font: var(--fontWeightBold) 38px/48px var(--fontFamily);
+    letter-spacing: -0.2px;
+    padding: 0 var(--space-4);
+}
+
+.author-whoami {
+    color: var(--accentColor);
+    font-size: 16px;
+}
+
+.author-link {
+    display: inline-flex;
+    flex-direction: row;
+    gap: var(--space-1);
+    align-items: center;
+}

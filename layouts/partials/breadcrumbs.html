@@ -1,0 +1,35 @@
+<ol>
+    {{- /* declare a 'variable' to store the each link position */}}
+    {{ $parentsite := .Site.Params.parentSite.title }}
+    {{ $parentsiteurl := .Site.Params.parentSite.url }}
+    {{- $data := newScratch }}
+    {{- $data.Set "counter" 1 }}
+    {{ if $parentsite }}
+        <li class="breadcrumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a class="breadcrumb-link" itemprop="item" href="{{ $parentsiteurl }}">
+                {{ $parentsite }}
+            </a>
+            <meta itemprop="position" content='{{ $data.Get "counter"}}' />
+        </li>
+        {{- /* add 'one' because the index in the upcoming range loop starts at 0 */}}
+        {{- $data.Add "counter" 1 }}
+    {{ end }}
+    
+    {{- range $index, $value := .Ancestors.Reverse }}
+        <li class="breadcrumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            {{- $data.Add "counter" $index }}
+            <a class="breadcrumb-link" itemprop="item" href="{{.Permalink}}">
+                {{ .LinkTitle }}
+            </a>
+            {{- /* pass the counter value into schema attribute */}}
+            <meta itemprop="position" content='{{ $data.Get "counter"}}' />
+        </li>         
+    {{- end }}
+    <li class="breadcrumb active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span class="breadcrumb-link" itemprop="name">
+                {{.LinkTitle}}
+            </span>
+        {{- /* pass the counter value into schema attribute */}}
+        <meta itemprop="position" content='{{ $data.Get "counter"}}' />
+    </li>
+</ol>

@@ -1,0 +1,83 @@
+.theme-toggle {
+    position: relative;
+    width: 48px;
+    height: 24px;
+    cursor: pointer;
+    transition: all 200ms;
+    flex-shrink: 0;
+    margin: var(--space-2) 0;
+
+    --toggleBackgroundColor: #C7CCD5;
+    --shadow-ambientColor: rgba(59,65,94,.2);
+    --shadow-keylineColor:0 0 0 1px rgba(0,0,0,.07);
+    --icon-color-light: #ffb348;
+    --icon-color-dark: #a2b5bf;
+}
+    
+.theme-toggle.theme-dark {
+    --toggleBackgroundColor: #384C69;
+}
+
+.toggle-track {
+    width: 100%;
+    height: 12px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 25%;
+    background: var(--toggleBackgroundColor);
+    border-radius: 999px;
+    transition: all 200ms;
+}
+
+.toggle-knob {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    /* top: -6px; */
+    border-radius: 50%;
+    background: var(--backgroundColor);
+    box-shadow: var(--shadow-keylineColor), 0 0.2rem 0.4rem 0 var(--shadow-ambientColor);
+    transition: transform 200ms, background 200ms;
+}
+
+.theme-dark .toggle-knob {
+    transform: translateX(24px);
+    box-shadow: 0 0 0 1px #34445D;
+}
+
+.toggle-icon-wrapper {
+    position: relative;
+    transition: transform 200ms;
+}
+
+.toggle-icon-wrapper--light {
+    color: var(--icon-color-light);
+    transform: scaleX(1) scaleY(1) rotate(0deg);
+}
+
+.theme-dark .toggle-icon-wrapper--light {
+    transform: scaleX(0) scaleY(0) rotate(90deg);
+}
+
+.toggle-icon-wrapper--dark {
+    color: var(--icon-color-dark);
+    transform: scaleX(0) scaleY(0) rotate(90deg);
+}
+
+.theme-dark .toggle-icon-wrapper--dark {
+    transform: scaleX(1) scaleY(1) rotate(0deg);
+}
+
+.theme-icon {
+    fill: currentColor;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,29 @@
+
+{{ $author := index (.Params.authors) 0 }}
+{{ if $author }}
+{{ with .Site.GetPage (printf "authors/%s" (urlize $author))}}
+<figure class="author accent-kill">
+    <a href="{{ .Permalink }}">
+        <img class="avatar"
+        {{ if .Params.avatar }}
+            src='
+            {{ $url := urls.Parse .Params.avatar }}
+            {{ if $url.IsAbs }}
+                {{ .Params.avatar }}
+            {{ else }}
+                {{ if (hasPrefix .Params.avatar "/") }}
+                    {{ absURL .Params.avatar }}
+                {{ else }}
+                    {{ urls.JoinPath .Permalink .Params.avatar }}
+                {{ end }}    
+            {{ end }}
+            '
+        {{ end }}/>
+    </a>
+    <figcaption class="author-identity-gist">
+        <a href="{{ .Permalink }}" class="author-name">{{ .Title }}</a>
+        <span class="author-title">{{ .Params.whoami }}</span>
+    </figcaption>
+</figure>
+{{ end }}
+{{ end }}

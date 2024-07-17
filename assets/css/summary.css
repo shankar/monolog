@@ -1,0 +1,244 @@
+@import "lib/author";
+
+.summary {
+    display: grid;
+    row-gap: var(--space-4);
+    grid-template-columns:repeat(var(--columnCount),1fr);
+}
+
+.summary.featured {
+    padding: var(--space-4);
+}
+
+@media (min-width:900px) {
+    .summary.featured {
+        padding: var(--space-6) var(--space-4);
+    }
+}
+
+.summary {
+    grid-template-areas:
+        "category"
+        "title"
+        "author"
+        "date"
+        "body"
+        "readMore";
+}
+
+.summary.has-thumbnail {
+    grid-template-areas:
+        "category"
+        "title"
+        "author"
+        "date"
+        "image"
+        "body"
+        "readMore";
+}
+
+.summary.featured {
+    grid-template-areas:
+        "category"
+        "title"
+        "author"
+        "body"
+        "readMore"
+}
+
+.summary.has-thumbnail.featured {
+    grid-template-areas:
+        "category"
+        "title"
+        "author"
+        "body"
+        "readMore"
+        "image";
+}
+
+@media (min-width:600px) {
+    .summary {
+        grid-template-areas:
+            "category   date" 
+            "title      title"
+            "author     author"
+            "body       body"
+            "readMore   readMore"
+    }
+
+    .summary.has-thumbnail {
+        grid-template-areas:
+            "category   date" 
+            "title      title"
+            "author     author"
+            "image      image"
+            "body       body"
+            "readMore   readMore"
+    }
+
+    .summary.featured {
+        grid-template-areas:
+            "category     category"
+            "title        title"
+            "author       author"
+            "body         body"
+            "readMore     readMore"
+    }
+
+    .summary.featured.has-thumbnail {
+        grid-template-areas:
+            "category     category"
+            "title        title"
+            "author       author"
+            "body         body"
+            "readMore     readMore"
+            "image        image"
+    }
+}
+
+@media (min-width:750px) {
+    .summary.has-thumbnail {
+        grid-template-areas:
+            "category   date"
+            "title      title"
+            "author     author" 
+            "body       image"
+            "readMore   image" 
+            ".          image"
+    }
+
+    .summary.featured {
+        grid-template-areas:
+            "category     category"
+            "title        body"
+            "author       body"
+            "author       readMore"
+    }
+
+    .summary.featured.has-thumbnail {
+        grid-template-areas:
+            "category   category"
+            "title      title"
+            "author     image"
+            "body       image"
+            "readMore   image"
+            ".          image"
+    }
+}
+
+@media (min-width:900px) {
+    .summary {
+        grid-template-areas:
+            "category   category   category date"
+            "title      title      title    author"
+            "body       body       body     ."
+            "readMore   readMore   readMore ."
+
+    }
+    .summary.has-thumbnail {
+        grid-template-areas:
+            "category   category   category date"
+            "title      title      title    author"
+            "body       body       image    image"
+            "readMore   readMore   image    image"
+            ".          .          image    image"
+    }
+    .summary.featured {
+        grid-template-areas:
+            "category     category    category  category"
+            "title        title       body      body"
+            "author       author      body      body"
+            ".            .           readMore  readMore"
+
+    }
+    .summary.featured.has-thumbnail {
+        position: relative;
+        grid-template-areas:
+            "category   category    image image"
+            "title      title       image image"
+            "author     author      image image"
+            "body       body        image image"
+            "readMore   readMore    image image"
+    }
+
+}
+
+.summary > * {
+    padding-inline: var(--space-4);
+    width: 100%;
+}
+
+.summary > .category {
+    text-transform: capitalize;
+    position: relative;
+    grid-area: category;
+    font: var(--fontWeightSemibold) 14px/1.7 var(--fontFamily);
+    letter-spacing: 0.2px;
+}
+
+.summary:not(.featured) > .category:before {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 24px;
+    background-color: var(--accentColor);
+    content: "";
+    left: 0;
+    top: 0;
+}
+
+.summary > .title {
+    grid-area: title;
+    font: var(--fontWeightBold) 38px/48px var(--fontFamily);
+    letter-spacing: -0.2px;
+    color: var(--titleColor);    
+}
+
+.author {
+    grid-area: author;
+}
+
+.post-date {
+    position: relative;
+    grid-area: date;
+}
+
+@media (min-width:600px) {
+    .summary:not(.featured) > .post-date:before {
+        display: block;
+        position: absolute;
+        width: 1px;
+        height: 24px;
+        background-color: var(--accentColor);
+        content: "";
+        left: 0;
+        top: 0;
+    }
+}
+
+.thumbnail {
+    grid-area: image;
+    padding: 0;
+    box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25),0 8px 16px -8px rgba(0,0,0,0.3);
+}
+
+@media (min-width:900px) {
+    .summary.summary.featured > .thumbnail {
+        position: absolute;
+        top: -8px;
+        bottom: -8px;
+    }
+}
+
+.thumbnail img {
+    border-radius: 4px;
+}
+
+.summary-content {
+    grid-area: body;
+}
+
+.read-more {
+    grid-area: readMore;
+    text-transform: capitalize;
+}

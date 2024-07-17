@@ -1,0 +1,20 @@
+<div class="overlay-dropdown"></div>
+<div class="content-container">
+    <div class="site-header">
+        <input type="checkbox" class="menu-toggle"></input>
+        <div class="logo-menu-btn-container">
+            <h1 class="site-title">
+                {{ site.Title }}
+            </h1>
+            <button class="menu-btn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+        {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+    </div>
+</div>

@@ -1,0 +1,16 @@
+{{ define "customcss" }}
+{{ partial "head/css.html" (dict "filename" "taxonomy.css") }}
+{{ end }}
+
+{{ define "main" }}
+<section class="hero content-container section-layout">
+    <h1 class="page-title">{{ .Title }}</h1>
+</section>
+<section class="content-container content-layout">
+    {{ range .Pages }}
+        <a href="{{ .Permalink }}" class="{{.Data.Singular}} term">
+            {{ .Title }}
+        </a>
+    {{ end }}
+</section>
+{{ end }}

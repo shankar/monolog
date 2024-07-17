@@ -1,0 +1,198 @@
+@import "theme-toggle";
+
+header {
+    position: relative;
+}
+
+.site-header {
+    position: relative;
+    min-height: 64px;
+    display: flex;
+    gap: var(--space-8);
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-3) 0 var(--space-3) var(--space-4);
+}
+
+.site-title {
+    font-size: 28px;
+    letter-spacing: -1.2px;
+    font-weight: var(--fontWeightBold);
+    line-height: 1.5;
+    color: var(--siteTitleColor);
+    text-transform: capitalize;
+}
+
+.menu-btn {
+    display: none;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.primary-nav > ul {
+    display: flex;
+    gap: var(--space-4);
+    height: 100%;
+}
+
+.primary-nav .navitem {
+    display: flex;
+    font-size: 16px;
+    font-weight: var(--fontWeightBold);
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+    text-transform: capitalize;
+}
+
+.primary-nav .navlink {
+    padding: var(--space-2) var(--space-4);
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding-top: var(--space-4);
+    }
+
+    .overlay-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        height: calc(100vh - 80px);
+        background: var(--overlayBackgroundColor);
+        opacity: var(--overlayOpacity);
+        width: 100%;
+        z-index: 2;
+    }
+
+    .site-header {
+        padding-right: var(--space-4);
+    }
+
+    .logo-menu-btn-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .menu-btn {
+        display: block;
+        cursor: pointer;
+    }
+
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: var(--space-4);
+        width: 36px;
+        height: 100%;
+        z-index: 9999;
+    }
+
+    .hamburger {
+        position: relative;
+        width: 20px;
+        height: 13px;
+    }
+
+    .hamburger > span {
+        position: absolute;
+        left:0;
+        width: 100%;
+        height: 3px;
+        border-radius: 3px;
+        background: var(--titleColor);
+    }
+
+    .hamburger > span:nth-child(1) {
+        top: 0px;
+    }
+
+    .hamburger > span:nth-child(2),
+    .hamburger > span:nth-child(3) {
+        top: 5px;
+    }
+
+    .hamburger > span:nth-child(4) {
+        top: 10px;
+    }
+
+    .primary-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: -16px;
+        z-index: 9999;
+        width: 100vw;
+        padding: 0 var(--space-4);
+        background: var(--backgroundColor);
+        border-width: 1px;
+        border-color: var(--guideSolidColor);
+        border-bottom-style: solid;
+    }
+
+    .primary-nav > ul {
+        flex-direction: column;
+        border-width: 1px;
+        border-color: var(--guideSolidColor);
+        border-style: none solid;
+        padding: var(--space-6) 0;
+    }
+
+    .primary-nav .navitem {
+        width: 100%;
+    }
+
+    .menu-toggle:checked {
+        ~ .logo-menu-btn-container {
+            .hamburger > span:nth-child(2) {
+                transform: rotate(45deg);
+            }
+            .hamburger > span:nth-child(3) {
+                transform: rotate(-45deg);
+            }
+            .hamburger > span:nth-child(1),
+            .hamburger > span:nth-child(4) {
+            width: 0;
+            top: 5px;
+            left: 50%;
+            }
+        }
+        ~ .primary-nav {
+            display: block;
+        }
+    }
+
+    .overlay-dropdown:has(~ .content-container .menu-toggle:checked) {
+        display: block;
+    }
+
+    .site-body:has(.menu-toggle:checked) {
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    .primary-nav .navitem {
+        font-size: 18px;
+    }
+}
+
+/* Ancillary header  */
+
+.ancillary-header {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-2) var(--space-4);
+    align-items: center;
+    gap: var(--space-8);
+}
+
+@media (max-width: 600px) {
+    .ancillary-header {
+        justify-content: flex-end;
+    }
+}

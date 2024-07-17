@@ -1,0 +1,48 @@
+{{ define "customcss" }}
+{{ partial "head/css.html" (dict "filename" "home.css") }}
+{{ partial "head/css.html" (dict "filename" "summary.css") }}
+{{ end }}
+
+
+{{ define "main" }}
+  {{  with (index (where (where .Site.RegularPages "Type" "in" site.Params.mainSections) ".Params.featured" "=" true) 0 )}}
+    <section class="guide-horizontal content-container section-layout">
+      <article class="summary featured card {{if .Params.banner }} has-thumbnail {{end}}">
+        <h6 class="category"><a href="{{ .RelPermalink }}">Featured</a></h6>
+        <h1 class="title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+        {{ partial "author-stub.html" . }}
+        {{ with partial "fetch-banner.html" . }}
+          {{ if . }}
+            <figure class="thumbnail">
+              <img src="{{ .RelPermalink }}" alt="thumbnail">
+            </figure>
+          {{ end }}
+        {{ end }}
+        <div class="summary-content">
+            <p>{{ .Summary }}</p>
+        </div>
+        {{ partial "readmore.html" . }}
+      </article>
+    </section>
+  {{ end }}
+
+<section class="content-container section-layout posts-section-layout">
+  <div class="section-title">
+      <h1>Fresh Off The Press</h1>
+  </div>
+  {{ range first 4 site.RegularPages }}
+    {{ .Render "summary" }}
+  {{ end }}
+  <div class="view-all-posts">
+    <a class="button-style mellow" href="posts">
+        View all posts
+        <svg class="hover-arrow" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+            <g fill-rule="evenodd">
+                <path class="line-path" d="M0 5h7"></path>
+                <path class="tip-path" d="M1 1l4 4-4 4"></path>
+            </g>
+        </svg>
+    </a>
+</div>
+</section>
+{{ end }}

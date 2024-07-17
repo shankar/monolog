@@ -1,0 +1,21 @@
+.button-style {
+    display: inline-block;
+    padding: 6px var(--space-4) 4px;
+    border-radius: calc(34px / 2);
+    background-color: var(--buttonBackgroundColor);
+    color: var(--invertTitleColor);
+    width: fit-content;
+}
+
+.button-style:hover {
+    background-color: var(--buttonHoverBackground);
+    color: var(--invertTitleColor);
+}
+
+.button-style.mellow {
+    background-color: var(--altButtonBackgroundColor);
+}
+
+.button-style.mellow:hover {
+    background-color: var(--altButtonHoverBackground);
+}

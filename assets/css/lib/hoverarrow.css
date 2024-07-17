@@ -1,0 +1,31 @@
+.hover-arrow {
+    --arrowSpacing:5px;
+    --arrowHoverTransition:150ms cubic-bezier(0.215,0.61,0.355,1);
+    --arrowHoverOffset:translateX(3px);
+    --arrowTipTransform:none;
+    --arrowLineOpacity:0;
+    position:relative;
+    top:1px;
+    margin-left:var(--arrowSpacing);
+    stroke-width:2px;
+    fill:none;
+    stroke:currentColor
+}
+
+.hover-arrow .line-path {
+    opacity:var(--arrowLineOpacity);
+    transition:opacity var(--arrowHoverTransition);
+}
+
+.hover-arrow .tip-path {
+    transform:var(--arrowTipTransform);
+    transition:transform var(--arrowHoverTransition);
+}
+
+a:hover .hover-arrow .line-path {
+    --arrowLineOpacity:1;
+}
+
+a:hover .hover-arrow .tip-path {
+    --arrowTipTransform:var(--arrowHoverOffset);
+}

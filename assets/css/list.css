@@ -1,0 +1,49 @@
+.page-caption {
+    color: var(--accentColor);
+    font-size: 16px;
+    font-weight: var(--fontWeightSemibold);
+    line-height: 2;
+}
+
+.page-title {
+    font-size: 26px;
+    font-weight: var(--fontWeightSemibold);
+    line-height: 1.5;
+    letter-spacing: 0.4px;
+    color: var(--titleColor);
+}
+
+.page-description {
+    padding-top: var(--space-4);
+    width: 90%;
+    max-width: calc(var(--layoutWidthMax) * 3 / 5);
+}
+.page-description > p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--textColor);
+}
+
+@media (max-width: 600px) {
+    .page-title {
+        font-size: 24px;
+    }
+}
+
+.section-layout {
+    padding: var(--space-9) var(--space-4) calc(56px + var(--space-9));
+}
+
+@media (max-width: 600px) {
+    .section-layout {
+        padding-top: calc(2 * var(--space-8));
+        padding-bottom: calc(56px + var(--space-8));
+    }
+}
+
+.content-list {
+    display: flex;
+    flex-direction: column;
+    gap: calc(2 * var(--space-9));
+    margin-bottom: calc(2 * var(--space-9));
+}
