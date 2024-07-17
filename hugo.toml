@@ -1,0 +1,35 @@
+baseURL = 'https://shankar.github.com/monolog'
+languageCode = 'en-us'
+title = 'Monolog'
+theme ='monolog'
+
+[[menus.main]]
+name = 'Home'
+pageRef = '/'
+weight = 10
+
+[[menus.main]]
+name = 'Posts'
+pageRef = '/posts'
+weight = 20
+
+[[menus.main]]
+name = 'Authors'
+pageRef = '/authors'
+weight = 30
+
+[taxonomies]
+category = 'categories'
+tag = 'tags'
+author = 'authors'
+
+[params]
+[params.contact]
+name = 'admin'
+email = 'admin@monolog.theme'
+
+[params.social]
+linkedin = '#'
+discord = '#'
+github = '#'
+mastodon = '#'

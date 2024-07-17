@@ -1,0 +1,3 @@
+[submodule "themes/monolog"]
+	path = themes/monolog
+	url = https://github.com/shankar/monolog.git
