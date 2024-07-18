@@ -241,6 +241,10 @@
     margin-bottom: var(--space-9);
 }
 
+.blog-post-body > .author-container {
+    margin-top: var(--space-1);
+}
+
 .blog-post:not(.toc)>.blog-post-body>.author-container {
     display: none;
 }

@@ -11,8 +11,8 @@
       </h6>
     {{ end }}
       <h1 class="post-title">{{ .Title }}</h1>
-      <div class="post-date">
-          <time class="beforeline" datetime="{{ .Date }}">{{ .Date | time.Format ":date_medium" }}</time>
+      <div class="post-date beforeline">
+          <time datetime="{{ .Date }}">{{ .Date | time.Format ":date_medium" }}</time>
       </div>
       <div class="author-container">
         {{ partial "author-stub.html" . }}
