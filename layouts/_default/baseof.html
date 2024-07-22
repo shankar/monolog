@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="elroot" lang="{{ or site.Language.LanguageCode }}">
+<html class="elroot" lang="{{ or site.Language.LanguageCode }}" data-theme="">
 <head>
   {{ partial "head.html" . }}
   {{ block "customcss" . }}{{ end }}
@@ -22,7 +22,7 @@
       <nav class="breadcrumbs">
         {{ partial "breadcrumbs.html" . }}
       </nav>
-      <button class="theme-toggle">
+      <button class="theme-toggle" data-theme-toggle aria-label="toggle theme">
           <div class="toggle-track"></div>
           <div class="toggle-knob">
               <div class="toggle-icon-wrapper toggle-icon-wrapper--light">

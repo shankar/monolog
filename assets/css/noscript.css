@@ -1,0 +1,87 @@
+@media (prefers-color-scheme: dark) {
+    [data-theme=""] {
+        color-scheme: light;
+
+        --accentColor: #635BFF;
+        --altBackgroundColor: #E5ECF4;
+        --backgroundColor: #FFFFFF;
+        --footerBackgroundColor: #F6F9FC;
+        --siteTitleColor: #0A2540;
+        --overlayBackgroundColor: #0A2540;
+        --overlayOpacity: 0.75;
+        --avatarBorderColor: #E6ECF2;
+        --titleColor: #0A2540;
+        --invertTitleColor: #F6F9FC;
+        --textColor: #425466;
+        --linkHoverColor: #0A2540;
+        --linkHoverOpacity: 1;
+        --footnoteTextColor: #4D5B78;
+        --disclaimerTextColor: #707F98;
+        --inlineCodeTextColor: #2C3A57;
+        --inlineCodeBackground: #E6ECF2;
+        --blockquoteBackground: rgba(229, 236, 244, 0.4);
+        --cardBackgroundColor: #FFFFFF;
+        --cardBorderColor: #EBEEF1;
+        --guideSolidColor: rgba(66, 71, 112, 0.06);
+        --guideDashedColor: rgba(66, 71, 112, 0.09);
+        --buttonBackgroundColor: var(--accentColor);
+        --buttonHoverBackground: var(--titleColor);
+        --altButtonBackgroundColor: var(--titleColor);
+        --altButtonHoverBackground: var(--textColor);
+        --tagBackgroundColor: var(--textColor);
+        --tagHoverBackground: var(--titleColor);
+
+        h1>a,
+        .accent-kill {
+            --accentColor: #0A2540;
+            --linkHoverOpacity: 0.6;
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    [data-theme=""] {
+        color-scheme: dark;
+
+        --accentColor: #00D4FF;
+        /* --backgroundColor: #07233E; */
+        --backgroundColor: #001E37;
+        --altBackgroundColor: #06182C;
+        /* --footerBackgroundColor: #05223C; */
+        --footerBackgroundColor: #001C34;
+        --siteTitleColor: #ADBDCC;
+        --overlayBackgroundColor: #06182C;
+        --overlayOpacity: 0.9;
+        --avatarBorderColor: #1C4161;
+        --titleColor: #F6F9FC;
+        --invertTitleColor: #0A2540;
+        --textColor: #ADBDCC;
+        --linkHoverColor: #F6F9FC;
+        --footnoteTextColor: #ADBDCC;
+        --disclaimerTextColor: #707F98;
+        --inlineCodeTextColor: #FFFFFF;
+        --inlineCodeBackground: #1C4161;
+        --blockquoteBackground: rgba(6, 24, 44, 0.4);
+        --cardBackgroundColor: #0C2E4E;
+        --cardBorderColor: #0f395E;
+        --guideSolidColor: rgba(66, 71, 112, 0.3);
+        --guideDashedColor: rgba(66, 71, 112, 0.3);
+        --buttonBackgroundColor: var(--accentColor);
+        --buttonHoverBackground: var(--titleColor);
+        --altButtonBackgroundColor: #00c7f2;
+        --altButtonHoverBackground: var(--accentColor);
+        --tagBackgroundColor: var(--altButtonBackgroundColor);
+        --tagHoverBackground: var(--altButtonHoverBackground);
+
+        h1>a,
+        .accent-kill {
+            --accentColor: #F6F9FC;
+            --linkHoverOpacity: 0.6;
+        }
+    }
+}
+
+/* Remove all HTML elements that require JavaScript to function. */
+.theme-toggle {
+    display: none;
+}

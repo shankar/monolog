@@ -1,12 +1,42 @@
+<script>
+  // Get the current theme setting:
+  // Look for a local storage value.
+  // Fall back to system setting.
+  // Default to light mode.
+  var currentThemeSetting = (() => {
+    const localStorageTheme = localStorage.getItem("theme");
+    if (localStorageTheme !== null) {
+      return localStorageTheme;
+    }
+
+    const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
+    if (systemSettingDark.matches) {
+      return "dark";
+    }
+
+    return "light";
+  })();
+
+
+  // Update HTML file according to theme setting.
+  const updateTheme = (theme) => {
+    document.querySelector("html").setAttribute("data-theme", theme);
+    const opposite = theme === "dark" ? "light" : "dark";
+  }
+  
+
+  updateTheme(currentThemeSetting);
+</script>
+
 {{- with resources.Get "js/theme-toggle.js" }}
-  {{- if eq hugo.Environment "development" }}
-    {{- with . | js.Build }}
-      <script src="{{ .RelPermalink }}" defer></script>
-    {{- end }}
-  {{- else }}
-    {{- $opts := dict "minify" true }}
-    {{- with . | js.Build $opts | fingerprint }}
-      <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous" defer></script>
-    {{- end }}
-  {{- end }}
+{{- if eq hugo.Environment "development" }}
+{{- with . | js.Build }}
+<script src="{{ .RelPermalink }}" async></script>
+{{- end }}
+{{- else }}
+{{- $opts := dict "minify" true }}
+{{- with . | js.Build $opts | fingerprint }}
+<script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous" defer></script>
+{{- end }}
+{{- end }}
 {{- end }}

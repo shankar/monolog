@@ -1,4 +1,5 @@
-.elroot {
+/* Any changes made to the theme variables here has to be done in the noscript.css file too */
+[data-theme="light"] {
     color-scheme: light;
 
     --accentColor: #635BFF;
@@ -29,16 +30,15 @@
     --altButtonHoverBackground: var(--textColor);
     --tagBackgroundColor: var(--textColor);
     --tagHoverBackground: var(--titleColor);
-}
 
-h1>a,
-.accent-kill {
+    h1>a,
+    .accent-kill {
     --accentColor: #0A2540;
     --linkHoverOpacity: 0.6;
+    }
 }
 
-
-.elroot.theme-dark {
+[data-theme="dark"] {
     color-scheme: dark;
 
     --accentColor: #00D4FF;
@@ -66,13 +66,15 @@ h1>a,
     --guideDashedColor: rgba(66, 71, 112, 0.3);
     --buttonBackgroundColor: var(--accentColor);
     --buttonHoverBackground: var(--titleColor);
-    --altButtonBackgroundColor: #008fb8;
+    --altButtonBackgroundColor: #00c7f2;
     --altButtonHoverBackground: var(--accentColor);
     --tagBackgroundColor: var(--altButtonBackgroundColor);
     --tagHoverBackground: var(--altButtonHoverBackground);
+
+    h1>a,
+    .accent-kill {
+    --accentColor: #F6F9FC;
+    --linkHoverOpacity: 0.6;
+    }
 }
 
-.elroot.theme-dark h1>a,
-.elroot.theme-dark .accent-kill {
-    --accentColor: #F6F9FC;
-}

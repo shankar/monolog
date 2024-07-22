@@ -82,6 +82,7 @@
 .author-whoami {
     color: var(--accentColor);
     font-size: 16px;
+    font-weight: var(--fontWeightSemibold);
 }
 
 .author-link {

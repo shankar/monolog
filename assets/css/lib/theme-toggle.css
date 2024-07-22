@@ -14,7 +14,7 @@
     --icon-color-dark: #a2b5bf;
 }
     
-.theme-toggle.theme-dark {
+[data-theme="dark"] .theme-toggle {
     --toggleBackgroundColor: #384C69;
 }
 
@@ -44,7 +44,7 @@
     transition: transform 200ms, background 200ms;
 }
 
-.theme-dark .toggle-knob {
+[data-theme="dark"] .theme-toggle .toggle-knob {
     transform: translateX(24px);
     box-shadow: 0 0 0 1px #34445D;
 }
@@ -59,7 +59,7 @@
     transform: scaleX(1) scaleY(1) rotate(0deg);
 }
 
-.theme-dark .toggle-icon-wrapper--light {
+[data-theme="dark"] .theme-toggle .toggle-icon-wrapper--light {
     transform: scaleX(0) scaleY(0) rotate(90deg);
 }
 
@@ -68,7 +68,7 @@
     transform: scaleX(0) scaleY(0) rotate(90deg);
 }
 
-.theme-dark .toggle-icon-wrapper--dark {
+[data-theme="dark"] .theme-toggle .toggle-icon-wrapper--dark {
     transform: scaleX(1) scaleY(1) rotate(0deg);
 }
 

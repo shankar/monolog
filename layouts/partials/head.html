@@ -2,4 +2,7 @@
 <meta name="viewport" content="width=device-width">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 {{ partialCached "head/css.html" (dict "filename" "common.css") }}
+<noscript>
+{{ partial "head/css.html" (dict "filename" "noscript.css") }}
+</noscript>
 {{ partialCached "head/js.html" . }}

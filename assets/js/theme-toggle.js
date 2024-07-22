@@ -1,25 +1,7 @@
-const root = document.documentElement;
-const themeToggle = document.querySelectorAll('.theme-toggle'); 
+const toggle = document.querySelector("[data-theme-toggle]");
+toggle.addEventListener("click", (event) => {
+	currentThemeSetting = currentThemeSetting === "dark" ? "light" : "dark";
 
-const lightMode = () => {
-	root.classList.remove('theme-dark');
-	themeToggle.forEach(button => {
-		button.classList.remove('theme-dark');
-	})
-}
-
-const darkMode = () => {
-    root.classList.add('theme-dark');
-    themeToggle.forEach(button => {
-        button.classList.add('theme-dark');
-    })
-}
-
-const changeTheme = () => {
-	let themeState = root.classList.contains('theme-dark');
-	themeState ? lightMode() : darkMode();
-}
-
-themeToggle.forEach(button => {
-	button.addEventListener('click', changeTheme)
-})
+	localStorage.setItem("theme", currentThemeSetting);
+	updateTheme(currentThemeSetting);
+}); 

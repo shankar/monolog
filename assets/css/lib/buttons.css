@@ -1,6 +1,6 @@
 .button-style {
     display: inline-block;
-    padding: 6px var(--space-4) 4px;
+    padding: 6px var(--space-4);
     border-radius: calc(34px / 2);
     background-color: var(--buttonBackgroundColor);
     color: var(--invertTitleColor);
