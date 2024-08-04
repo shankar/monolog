@@ -24,9 +24,10 @@ tag = 'tags'
 author = 'authors'
 
 [params]
-[params.contact]
-name = 'admin'
-email = 'admin@monolog.theme'
+
+[params.editor]
+name = 'John Doe'
+email = 'johndoe@monolog.theme'
 
 [params.social]
 linkedin = '#'

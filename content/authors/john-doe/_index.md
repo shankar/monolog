@@ -1,6 +1,6 @@
 +++
 title = 'John Doe'
-whoami = "Anonymous Person"
+whoami = "Editor of Monolog"
 avatar = 'john-doe.png'
 description = "I am a Nobody and nobody knows where i am from but everyone calls me John Doe"
 [social]
