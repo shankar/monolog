@@ -22,11 +22,11 @@
                 </svg>
             </a>
         </div>
-        {{ if .Site.Params.contact }}
+        {{ if .Site.Params.editor }}
         <div class="contact">
-            <h6 class="beforeline">Have any feedback or questions ?</h6>
-            <p><small>We would love to hear from you. Email {{ .Site.Params.contact.name }} at</small></p>
-            {{ $email := .Site.Params.contact.email }}
+            <h6 class="beforeline">Have feedback or questions ?</h6>
+            <p><small>We would love to hear from you. Email <strong>{{ .Site.Params.editor.name }}</strong> at</small></p>
+            {{ $email := .Site.Params.editor.email }}
             <a class="mail" href="mailto:{{ $email }}">{{ $email }}</a>
         </div>
         {{ end }}

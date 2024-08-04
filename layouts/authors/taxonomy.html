@@ -16,21 +16,25 @@
 </section>
 <section class="content-container content-list">
     {{ range .Pages }}
-        <section class="author-summary">
+        <section class="author-summary {{ if not .Params.avatar }} no-image {{ end }}">
+            {{ if .Params.avatar }}
             <div class="author-image">
                 <img class="avatar" src='
                 {{ $url := urls.Parse .Params.avatar }}
-                {{ if $url.IsAbs }}
-                    {{ .Params.avatar }}
-                {{ else }}
-                    {{ if (hasPrefix .Params.avatar "/") }}
-                        {{ absURL .Params.avatar }}
+                {{ if $url }}
+                    {{ if $url.IsAbs }}
+                        {{ .Params.avatar }}
                     {{ else }}
-                        {{ urls.JoinPath .Permalink .Params.avatar }}
-                    {{ end }}    
-                {{ end }}
+                        {{ if (hasPrefix .Params.avatar "/") }}
+                            {{ absURL .Params.avatar }}
+                        {{ else }}
+                            {{ urls.JoinPath .Permalink .Params.avatar }}
+                        {{ end }}    
+                    {{ end }}
+                {{end}}
                 '/>
             </div>
+            {{ end }}
             <p class="author-whoami beforeline">{{ .Params.whoami }}</p>
             <h1 class="author-name">
                 <a href="{{.Permalink }}">{{ .Title }}</a>

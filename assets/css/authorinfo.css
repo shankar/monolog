@@ -45,6 +45,15 @@
         "pagelink";
 }
 
+.author-summary.no-image {
+    grid-template-areas:
+        "whoami"
+        "name"
+        "about"
+        "stats"
+        "pagelink";
+}
+
 @media (min-width: 600px) {
     .author-summary {
         grid-template-areas:
@@ -54,17 +63,32 @@
             "pagelink  image"
             ".         image";
     }
+
+    .author-summary.no-image {
+        grid-template-areas:
+            "whoami    stats"
+            "name      name"
+            "about     about"
+            "pagelink  pagelink";
+    }
 }
 
 @media (min-width: 900px) {
     .author-summary {
         grid-template-areas:
             "whoami   .        .        stats"
-            "name     name     name     name"
+            "name     name     image    image"
             "about    about    image    image"
             "pagelink .        image    image"
-            ".        .        image    image"
             ".        .        image    image";
+    }
+
+    .author-summary.no-image {
+        grid-template-areas:
+            "whoami   .        .        stats"
+            "name     name     name     name"
+            "about    about    about    ."
+            "pagelink .        .        .";
     }
 }
 
