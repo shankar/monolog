@@ -1,3 +1,11 @@
+baseURL: https://example.org/
+languageCode: en-us
+title: 'My New Hugo Site'
+theme: monolog
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
 menus:
     main:
         - name: Posts
@@ -12,10 +20,6 @@ menus:
         - name: tags
           pageRef: /tags
           weight: 40
-taxonomies:
-    series: series
-    tags: tag
-    categories: category
 markup:
     highlight:
         lineNos: true
