@@ -1,0 +1,24 @@
+{{- $minHugoVersion := "0.140.0" }}
+{{- if lt hugo.Version $minHugoVersion }}
+  {{- errorf "Something requires Hugo v%s or later." $minHugoVersion }}
+{{- end }}
+
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<head>
+  {{ partial "head.html" . }}
+  {{ block "bespokecss" . }}{{ end }}
+</head>
+<body>
+  <header>
+    {{ partial "header.html" . }}
+  </header>
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer>
+    {{ partial "footer.html" . }}
+  </footer>
+  <!--<div class="debug-grid"></div>-->
+</body>
+</html>

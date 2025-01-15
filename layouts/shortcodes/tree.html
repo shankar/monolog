@@ -1,0 +1,10 @@
+{{- $root := cond .IsNamedParams (.Get "root") (.Get 0) -}}
+
+<ul class="tree">
+    <li>
+        <strong>{{ $root }}</strong>
+        {{- $list := .Inner | markdownify -}}
+        {{- $list = replace $list "<ul>" `<ul class="incremental">` -}}
+        {{ $list | safeHTML }}
+    </li>
+</ul>

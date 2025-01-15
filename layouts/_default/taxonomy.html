@@ -1,0 +1,49 @@
+{{ define "bespokecss" }}
+{{ partial "head/css.html" (dict "filename" "css/taxonomy.css") }}
+{{ partial "head/css.html" (dict "filename" "css/tag.css") }}
+{{ end }}
+
+{{ define "main" }}
+<h1 class="page-title">{{ .Title }}</h1>
+{{ .Content }}
+<ul class="taxonomy">
+    {{- $type := .Type }}
+    {{ $colors := slice "bg-rosewater" "bg-flamingo" "bg-pink" "bg-mauve" "bg-red" "bg-maroon"
+                    "bg-peach" "bg-yellow" "bg-green" "bg-teal" "bg-sky" "bg-saphire" "bg-blue" "bg-lavender" }}
+
+    {{/* Create map where key is the first character and value is a slice of terms. */}}
+    {{ $m := dict }}
+    {{ range $k, $_ := .Data.Terms }}
+      {{ $firstCharacter := substr $k 0 1 }}
+      {{ $s := slice }}
+      {{ with index $m $firstCharacter }}
+        {{ $s = . | append $k }}
+      {{ else }}
+        {{ $s = slice $k }}
+      {{ end }}
+      {{ $m = merge $m (dict $firstCharacter $s) }}
+    {{ end }}
+
+    {{- range $key, $value := $m }}
+    <li class="term-group">
+        <h1 class="term-group-name">{{ $key | upper }}</h1>
+        <ul class="term-list">
+            {{ range $value }}
+                {{ with $.Data.Terms.Get . }}
+                {{ $random := cast.ToInt (math.Rand | mul ($colors | len) | math.Floor) }}
+                {{ $color := (index $colors $random) }}
+                <li>
+                    <a class="term {{ $type | singularize }} {{ $color }}" href="{{ .Page.Permalink }}">
+                        <span>
+                        {{ .Page.LinkTitle }}
+                        </span>
+                    </a>
+                </li>
+                {{ end }}
+            {{ end }}
+        </ul>
+    </li>
+    {{- end }}
+</ul>
+{{ end }}
+

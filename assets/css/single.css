@@ -1,0 +1,89 @@
+/* BLOG POST PAGE SPECIFIC STYLING */
+/* Post title & metadata styling */
+/*HUGO: Used in single.html*/
+
+.post-metadata {
+    display:grid;
+    min-width: min-content;
+    margin-bottom: calc(var(--line-height) * 2);;
+    border: calc(var(--border-thickness) / 2) solid var(--text-color);
+    
+    > .post-title {
+        grid-area: post-title;
+    }
+
+    > .label-author {
+        grid-area: label-author;
+    }
+
+    > .author {
+        grid-area: author;
+    }
+
+    > .label-published {
+        grid-area: label-date;
+    }
+
+    > .published {
+        grid-area: date;
+    }
+
+    > .label-category {
+        grid-area: label-category;
+    }
+
+    > .category {
+        grid-area: category;
+    }
+
+    > .label-readtime {
+        grid-area: label-readtime;
+    }
+
+    > .readtime {
+        grid-area: readtime;
+    }
+}
+
+.post-metadata {
+    display: grid;
+    grid-template-columns: min-content 1fr min-content max-content;
+    grid-template-areas: 'post-title   post-title label-readtime readtime'
+        'post-title   post-title label-category category'
+        'label-author author     label-date     date';
+}
+
+@media screen and (max-width: 768px) {
+    .post-metadata {
+        grid-template-areas:
+            'post-title     post-title post-title     post-title'
+            'label-readtime readtime   label-category category'
+            'label-author   author     label-date     date';
+    }
+}
+
+.post-metadata h1 {
+    margin: 0;
+}
+
+.post-metadata > dt,
+.post-metadata > dd {
+    border: calc(var(--border-thickness) / 2) solid var(--text-color);
+    padding: calc((var(--line-height) / 2))
+        calc(1ch - var(--border-thickness) / 2)
+        calc((var(--line-height) / 2) - (var(--border-thickness)));
+    line-height: var(--line-height);
+    vertical-align: top;
+}
+
+dt {
+    font-weight: bold;
+}
+
+.label-title {
+    display: none;
+}
+
+@media screen and (max-width: 480px) {
+    .lastname {display: none;}
+}

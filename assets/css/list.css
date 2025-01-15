@@ -1,0 +1,92 @@
+/* STYLE FOR LISTING A SET OF POSTS */
+/* HUGO: Used in home.html list.html term.html */
+
+.term-type {
+    margin-bottom: 0;
+}
+
+.term-type + .page-title {
+    margin-top: 0;
+}
+
+.page-title {
+    margin-bottom: 0;
+}
+
+.hero {
+    margin: calc(2 * var(--line-height)) 0;
+}
+
+.section-title {
+    position: relative;
+    padding-inline: 2ch;
+}
+.section-title:before {
+    position: absolute;
+    content: '▶';
+    left: 0;
+}
+
+.featured {
+    background: var(--background-color-alt);
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--line-height);
+    padding: var(--line-height) 2ch;
+}
+
+.featured > * {
+    margin: 0;
+}
+
+.post-stub {
+    display: grid;
+    column-gap: calc(4 * 1ch);
+    row-gap: var(--line-height);
+    margin: calc(2 * var(--line-height)) 0;
+    grid-template-columns: max-content auto ;
+    grid-template-areas:
+        "date title"
+        ".    summary";
+}
+
+.post-stub.series {
+    grid-template-areas:
+        "part title"
+        ".    summary";
+}
+
+@media screen and (max-width: 640px) {
+    .post-stub {
+        grid-template:"title" "date" "summary" / 1fr;
+        row-gap: 0;
+    }
+
+    .post-stub.series {
+        grid-template-columns: max-content 1fr;
+        grid-template-areas:
+            "part    title"
+            "summary summary";
+        column-gap: 2ch;
+        row-gap: var(--line-height);
+    }
+}
+
+.post-stub > .date {
+    grid-area: date;
+    font-weight: 100;
+}
+
+.post-stub > .part {
+    grid-area: part;
+}
+
+.post-stub > .title {
+    grid-area: title;
+    margin: 0;
+}
+
+.post-stub > .summary {
+    grid-area: summary;
+}

@@ -1,0 +1,33 @@
+{{ define "bespokecss" }}
+{{ partial "head/css.html" (dict "filename" "css/list.css") }}
+{{ end }}
+
+{{ define "main" }}
+  <section class="hero">
+  {{ .Content }}
+  </section>
+  {{  with (index (where (where .Site.RegularPages "Type" "in" site.Params.mainSections) ".Params.featured" "=" true) 0 )}}
+  <section>
+    <h3 class="section-title">Featured Post</h3>
+    <article class="featured">
+      <h2 class="title">{{ .Title }}</h2>
+      <p>{{ .Summary }}</p>
+      <a href="{{ .RelPermalink }}"><strong>read more ⭢</strong></a>
+    </article>
+  </section>
+  {{ end }}
+  <section>
+    <h3 class="section-title">Fresh off the press</h3>
+    {{ range first 4 site.RegularPages }}
+    <article class="post-stub">
+      <time class="date" datetime='{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}'>
+        {{ .Date | time.Format "Jan 02, 2006" }}
+      </time>
+      <h2 class="title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <div class="summary">
+        {{ .Summary }}
+      </div>
+    </article>
+    {{ end }}
+  </section>
+{{ end }}

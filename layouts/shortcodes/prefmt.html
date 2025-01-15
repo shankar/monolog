@@ -1,0 +1,11 @@
+{{- $caption := cond .IsNamedParams (.Get "caption") (.Get 0) -}}
+
+{{- /* Output */ -}}
+<figure>
+    <pre>{{ .Inner }}</pre>
+    {{ with $caption }}
+    <figcaption>
+        {{ . | markdownify }}
+    </figcaption>
+    {{ end }}
+</figure>

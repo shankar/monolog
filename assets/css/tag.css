@@ -1,0 +1,105 @@
+/* TAG STYLING */
+/* HUGO: Used in single.html and terms.html */
+
+ul.tags,
+ul.term-list {
+    display: flex;
+    column-gap: 2ch;
+    row-gap: var(--line-height);
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.tags {
+    margin: calc(var(--line-height) * 2) 0;
+}
+
+a.term {
+    text-decoration: none;
+    text-wrap: nowrap;
+}
+
+a.tag {
+    padding-inline: 1ch;
+    > span {
+        position: relative;
+        margin-left: 1ch;
+    }
+    > span:before {
+        content: '#';
+        position: absolute;
+        left: -1ch;
+    }
+}
+
+.term.tag.bg-rosewater {
+    color: var(--background-color);
+    background: var(--rosewater);
+}
+
+.term.tag.bg-flamingo {
+    color: var(--background-color);
+    background: var(--flamingo);
+}
+
+.term.tag.bg-pink {
+    color: var(--background-color);
+    background: var(--pink);
+}
+
+.term.tag.bg-mauve {
+    color: var(--background-color);
+    background: var(--mauve);
+}
+
+.term.tag.bg-red {
+    color: var(--background-color);
+    background: var(--red);
+}
+
+.term.tag.bg-maroon {
+    color: var(--background-color);
+    background: var(--maroon);
+}
+
+.term.tag.bg-peach {
+    color: var(--background-color);
+    background: var(--peach);
+}
+
+.term.tag.bg-yellow {
+    color: var(--background-color);
+    background: var(--yellow);
+}
+
+.term.tag.bg-green {
+    color: var(--background-color);
+    background: var(--green);
+}
+
+.term.tag.bg-teal {
+    color: var(--background-color);
+    background: var(--teal);
+}
+
+.term.tag.bg-sky {
+    color: var(--background-color);
+    background: var(--sky);
+}
+
+.term.tag.bg-saphire {
+    color: var(--background-color);
+    background: var(--sapphire);
+}
+
+.term.tag.bg-blue {
+    color: var(--background-color);
+    background: var(--blue);
+}
+
+.term.tag.bg-lavender {
+    color: var(--background-color);
+    background: var(--lavender);
+}

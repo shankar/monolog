@@ -1,0 +1,19 @@
+name = 'monolog'
+license = 'MIT'
+licenselink = 'https://github.com/shankar/monolog/LICENSE'
+description = 'A minimal text centered blog theme for hugo'
+
+# The home page of the theme, where the source can be found
+homepage = 'https://github.com/shankar/monolog'
+
+# If you have a running demo of the theme
+demosite = 'https://shankar.blog'
+
+# Taxonomy terms
+tags = ['blog', 'responsive', 'minimal', 'monospace']
+features = ['responsive', 'only monospace font', 'no icons']
+
+# single author
+[author]
+  name = 'Shankar Murralitharan'
+  homepage = 'https;//shankar.me'

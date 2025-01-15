@@ -1,0 +1,74 @@
+/* TERMS PAGE STYLING */
+/* Terms definition is as defined in Hugo SSG */
+/*HUGO: Used in taxonomy.html*/
+
+.taxonomy {
+    list-style-type: none;
+    padding: 0;
+}
+
+/*ul.term-list {*/
+/*    padding: var(--line-height) 2ch;*/
+/*    background: var(--background-color-alt);*/
+/*    border-radius: 0.5rem;*/
+/*}*/
+
+.term-group-name {
+    margin-bottom: var(--line-height);
+}
+
+.term.bg-rosewater {
+    color: var(--rosewater);
+}
+
+.term.bg-flamingo {
+    color: var(--flamingo);
+}
+
+.term.bg-pink {
+    color: var(--pink);
+}
+
+.term.bg-mauve {
+    color: var(--mauve);
+}
+
+.term.bg-red {
+    color: var(--red);
+}
+
+.term.bg-maroon {
+    color: var(--maroon);
+}
+
+.term.bg-peach {
+    color: var(--peach);
+}
+
+.term.bg-yellow {
+    color: var(--yellow);
+}
+
+.term.bg-green {
+    color: var(--green);
+}
+
+.term.bg-teal {
+    color: var(--teal);
+}
+
+.term.bg-sky {
+    color: var(--sky);
+}
+
+.term.bg-saphire {
+    color: var(--sapphire);
+}
+
+.term.bg-blue {
+    color: var(--blue);
+}
+
+.term.bg-lavender {
+    color: var(--lavender);
+}

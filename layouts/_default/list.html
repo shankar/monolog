@@ -1,0 +1,19 @@
+{{ define "bespokecss" }}
+{{ partial "head/css.html" (dict "filename" "css/list.css") }}
+{{ end }}
+
+{{ define "main" }}
+<h1 class="page-title">{{ .Title }}</h1>
+{{ .Content }}
+{{ range .Pages }}
+<article class="post-stub">
+  <time class="date" datetime='{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}'>
+    {{ .Date | time.Format "Jan 02, 2006" }}
+  </time>
+  <h2 class="title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  <div class="summary">
+    {{ .Summary }}
+  </div>
+</article>
+{{ end }}
+{{ end }}

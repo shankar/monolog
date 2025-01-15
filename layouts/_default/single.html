@@ -1,0 +1,57 @@
+{{ define "bespokecss" }}
+{{ partial "head/css.html" (dict "filename" "css/single.css") }}
+{{ partial "head/css.html" (dict "filename" "css/shortcode.css") }}
+{{ partial "head/css.html" (dict "filename" "css/tag.css") }}
+
+{{ end }}
+
+{{ define "main" }}
+<dl class="post-metadata">
+  <dt class="label-title">Title</dt>
+  <dd class="post-title">
+    <h1 class="title">{{ .Title }}</h1>
+    {{- if .Params.series -}}
+    {{- with index (.GetTerms "series") 0 -}}
+        <span>Part of <a href="{{ .Permalink }}" style="font-weight: bold">{{ .LinkTitle }}</a> series</span>
+    {{- end -}}
+    {{- end -}}
+
+  </dd>
+
+  <dt class="label-author">Author</dt>
+  <dd class="author">
+    <a href="mailto:{{ .Params.email }}">
+      <cite>
+        {{ with (split .Params.author  " ")}}
+          {{ $firstname := index (first 1 .) 0 }}
+          {{ $lastname := index (last 1 .) 0 }}
+          <span class="firstname">{{ $firstname }}</span>
+          {{ if ne $firstname $lastname }}
+            <span class="lastname"> {{ $lastname }}</span>
+          {{ end }}
+        {{ end }}
+      </cite>
+    </a>
+  </dd>
+
+  <dt class="label-published">Written</dt>
+  <dd class="published">
+    {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+    <time datetime="{{ $dateMachine }}">
+      {{ .Date | time.Format "2006-01-02" }}
+    </time>
+  </dd>
+
+  <dt class="label-category">Category</dt>
+  <dd class="category">
+    {{ with (index (.GetTerms "categories") 0 ) }}
+    <a href='{{ .Permalink }}'>{{ .LinkTitle }}</a>
+    {{ end }}
+  </dd>
+
+  <dt class="label-readtime">Read</dt>
+  <dd class="readtime">{{ .ReadingTime }} min</dd>
+</dl>
+{{ .Content }}
+{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+{{ end }}

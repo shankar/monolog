@@ -1,0 +1,28 @@
+{{- $type := cond .IsNamedParams (.Get "type") (.Get 0) -}}
+{{- $src := cond .IsNamedParams (.Get "src") (.Get 1) -}}
+{{- $alt := cond .IsNamedParams (.Get "alt") (.Get 2) -}}
+{{- $title := cond .IsNamedParams (.Get "title") (.Get 3) -}}
+{{- $link := cond .IsNamedParams (.Get "link") (.Get 4) -}}
+{{- /* Output */ -}}
+<figure>
+  {{ if eq $type "img" }}
+  <img src="{{ $src }}" alt="{{ with $alt }}{{ . }}{{ end }}">
+  {{ else if eq $type "video" }}
+  <video src="{{ $src }}" controls="" >
+    <a href="{{ $src }}">
+      {{ with $title }}{{ . }}{{ end }}
+    </a>
+  </video>
+  {{ end }}
+  {{ with $title -}}
+    <figcaption>
+    {{ with $link }}
+      <a href="{{ . }}">
+    {{ end }}
+    {{ . | markdownify }}
+    {{ with $link }}
+      </a>
+    {{ end }}
+    </figcaption>
+  {{- end }}
+</figure>
