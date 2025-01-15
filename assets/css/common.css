@@ -586,7 +586,7 @@ code {
 
 :not(pre) > code {
     padding-inline: 1ch;
-    background: var(--greyscale-8);
+    background: var(--greyscale-9);
     text-wrap: nowrap;
 }
 

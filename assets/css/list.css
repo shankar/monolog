@@ -29,6 +29,7 @@
 
 .featured {
     background: var(--background-color-alt);
+    border: var(--border-thickness)solid var(--greyscale-8);
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
