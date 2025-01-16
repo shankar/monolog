@@ -3,5 +3,5 @@
 {{- /* Output */ -}}
 <div class="file">
     <h3 class="filename"><span class="file-icon">⌨</span> {{ $file }}</h3>
-    {{ .Inner | markdownify }}
+    {{- .Inner | markdownify -}}
 </div>

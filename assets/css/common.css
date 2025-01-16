@@ -590,6 +590,25 @@ code {
     text-wrap: nowrap;
 }
 
+pre:has(samp) {
+    padding: 0 2ch var(--line-height) 2ch;
+    background: var(--greyscale-9);
+    border-radius: 0.5rem;
+}
+
+samp span.prompt {
+    color: var(--mauve);
+}
+
+samp span.cursor {
+    animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
 figure {
     margin: calc(var(--line-height) * 2) 3ch;
     overflow-x: auto;

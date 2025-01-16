@@ -2,7 +2,7 @@
 
 {{- /* Output */ -}}
 <figure>
-    <pre>{{ .Inner }}</pre>
+    <pre>{{- .Inner -}}</pre>
     {{ with $caption }}
     <figcaption>
         {{ . | markdownify }}

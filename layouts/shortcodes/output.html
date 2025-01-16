@@ -1,5 +1,5 @@
 
 {{- $output := .Inner }}
-{{- $output = replace $output "<prompt/>" `<span class="prompt">$</span>` -}}
+{{- $output = replace $output "<prompt/>" `<span class="prompt">$ </span>` -}}
 {{- $output = replace $output "<cursor/>" `<span class="cursor">█</span>` -}}
-<pre tabindex="0"><samp>{{ $output | safeHTML }}</samp></pre>
+<pre tabindex="0"><samp>{{- $output | safeHTML -}}</samp></pre>
