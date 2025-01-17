@@ -11,6 +11,7 @@
     }
 
     > .filename {
+        font-size: 0.9rem;
         padding-left: 1ch;
     }
 }
