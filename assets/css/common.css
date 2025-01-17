@@ -478,12 +478,19 @@ samp span.prompt.root {
     color: var(--red);
 }
 
+kbd {
+    font-weight: bold;
+}
+
 samp span.cursor {
-    animation: blinker 1s linear infinite;
+    animation: blinker 1.5s step-end infinite;
 }
 @keyframes blinker {
-  50% {
+  0% {
     opacity: 0;
+  }
+  50% {
+      opacity: 1;
   }
 }
 
