@@ -466,8 +466,16 @@ pre:has(samp) {
     border-radius: 0.5rem;
 }
 
+samp {
+    font-size: 0.9rem;
+}
+
 samp span.prompt {
     color: var(--mauve);
+}
+
+samp span.prompt.root {
+    color: var(--red);
 }
 
 samp span.cursor {
