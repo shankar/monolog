@@ -1,6 +1,12 @@
+# Site information
 baseURL: https://example.org/
 languageCode: en-us
-title: 'My New Hugo Site'
+title: My New Hugo Site
+Params:
+  description: My website description
+  author: My Name
+  email: email@example.com
+# Configuration
 theme: monolog
 taxonomies:
   category: categories

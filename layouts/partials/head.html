@@ -1,5 +1,64 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#eff1f5" />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#11111b" />
+{{- if hugo.IsProduction }}
+<meta name="robots" content="index, follow">
+{{- else }}
+<meta name="robots" content="noindex, nofollow">
+{{- end }}
+
+<meta name="title" content='{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}'>
+
+<meta name="description" content='{{- with .Description }}{{ . }}{{- else }}
+    {{- if or .IsPage .IsSection}}
+      {{- .Summary | default (printf "%s - %s" .Title  site.Title) }}
+    {{- else }}
+      {{- with site.Params.description }}{{ . }}{{- end }}
+    {{- end }}
+  {{- end -}}'>
+
+{{- with or .Params.author site.Params.author }}
+<meta name="author" content="{{ . }}">
+{{- end }}
+
+{{- if .IsPage }}
+<meta name="keywords" content="{{- range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}">
+{{- else }}
+{{ with site.Params.keywords -}}<meta name="keywords" content="{{- range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}">{{ end }}
+{{- end }}
+
+<link rel="canonical" href="{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ .Permalink }} {{- end }}">
+
+{{- with or site.Title | plainify }}
+  <meta property="og:site_name" content="{{ . }}">
+{{- end }}
+{{- with or .Params.locale site.Language.LanguageCode site.Language.Lang }}
+<meta property="og:locale" content="{{ . }}">
+{{- end }}
+{{- with or .Title site.Title | plainify }}
+  <meta property="og:title" content="{{ . }}">
+{{- end }}
+{{- with or .Description .Summary site.Params.description | plainify | htmlUnescape | chomp }}
+  <meta property="og:description" content="{{ . }}">
+{{- end }}
+
+{{- if .IsPage }}
+  <meta property="og:type" content="article">
+  {{- with .Section }}
+    <meta property="article:section" content="{{ . }}">
+  {{- end }}
+  {{- $ISO8601 := "2006-01-02T15:04:05-07:00" }}
+  {{- with .PublishDate }}
+    <meta property="article:published_time" {{ .Format $ISO8601 | printf "content=%q" | safeHTMLAttr }}>
+  {{- end }}
+  {{- range .GetTerms "tags" | first 6 }}
+    <meta property="article:tag" content="{{ .Page.Title | plainify }}">
+  {{- end }}
+{{- else }}
+  <meta property="og:type" content="website">
+{{- end }}
+
 {{ partial "head/css.html" (dict "filename" "css/font.css") }}
 {{ partial "head/css.html" (dict "filename" "css/common.css") }}
