@@ -28,15 +28,20 @@
 }
 
 .featured {
-    background: var(--background-color-alt);
-    border: var(--border-thickness)solid var(--greyscale-8);
-    border-radius: 0.5rem;
-    display: flex;
-    flex-direction: column;
+    border: var(--border-thickness)solid var(--text-color);
+    display: grid;
     row-gap: var(--line-height);
     padding: var(--line-height) 2ch;
     > a {
+        position: relative;
         text-decoration: none;
+        width: max-content;
+    }
+
+    > a::after {
+        position: absolute;
+        content: '➜';
+        right: -2ch;
     }
 }
 
