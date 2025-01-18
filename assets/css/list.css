@@ -35,6 +35,9 @@
     flex-direction: column;
     row-gap: var(--line-height);
     padding: var(--line-height) 2ch;
+    > a {
+        text-decoration: none;
+    }
 }
 
 .featured > * {

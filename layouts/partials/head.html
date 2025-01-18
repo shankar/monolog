@@ -13,7 +13,7 @@
 
 <meta name="description" content='{{- with .Description }}{{ . }}{{- else }}
     {{- if or .IsPage .IsSection}}
-      {{- .Summary | default (printf "%s - %s" .Title  site.Title) }}
+      {{- .Summary | plainify | htmlUnescape | chomp | default (printf "%s - %s" .Title  site.Title) }}
     {{- else }}
       {{- with site.Params.description }}{{ . }}{{- end }}
     {{- end }}
@@ -40,8 +40,14 @@
 {{- with or .Title site.Title | plainify }}
   <meta property="og:title" content="{{ . }}">
 {{- end }}
-{{- with or .Description .Summary site.Params.description | plainify | htmlUnescape | chomp }}
-  <meta property="og:description" content="{{ . }}">
+{{- if or .Description .Summary site.Params.description }}
+  <meta property="og:description" content='{{- with .Description }}{{ . }}{{- else }}
+        {{- if or .IsPage .IsSection}}
+          {{- .Summary | plainify | htmlUnescape | chomp | default (printf "%s - %s" .Title  site.Title) }}
+        {{- else }}
+          {{- with site.Params.description }}{{ . }}{{- end }}
+        {{- end }}
+      {{- end -}}'>
 {{- end }}
 
 {{- if .IsPage }}
