@@ -5,7 +5,7 @@
 .post-metadata {
     display:grid;
     min-width: min-content;
-    margin-bottom: calc(var(--line-height) * 2);;
+    margin: calc(var(--line-height) * 2) 0;
     border: calc(var(--border-thickness) / 2) solid var(--text-color);
     
     > .post-title {

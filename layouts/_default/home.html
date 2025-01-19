@@ -14,7 +14,7 @@
       {{ if .Params.cover }}
       {{ with or (.Resources.Get .Params.cover) (resources.Get .Params.cover) }}
       <figure class="image">
-        <img src="{{ .RelPermalink }}">
+        <img src="{{ .Permalink }}">
       </figure>
       {{ end }}
       {{ end }}

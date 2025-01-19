@@ -50,7 +50,7 @@
       {{- end -}}'>
 {{- end }}
 {{ with or (.Resources.Get .Params.cover) (resources.Get .Params.cover) }}
-      <meta property="og:image" content="{{ .RelPermalink }}">
+      <meta property="og:image" content="{{ .Permalink }}">
 {{ end }}
 {{- if .IsPage }}
   <meta property="og:type" content="article">
