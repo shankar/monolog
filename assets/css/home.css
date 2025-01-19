@@ -1,0 +1,94 @@
+body {
+    container-type: inline-size;
+}
+
+.hero {
+    margin: calc(2 * var(--line-height)) 0;
+}
+
+.section-title {
+    position: relative;
+    padding-inline: 2ch;
+}
+.section-title:before {
+    position: absolute;
+    content: '▶';
+    left: 0;
+}
+
+.featured {
+    position: relative;
+    border: var(--border-thickness)solid var(--text-color);
+    display: grid;
+    row-gap: var(--line-height);
+    padding: var(--line-height) 2ch;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+        "title     image"
+        "summary   image"
+        "readmore  image";
+
+    > * {
+        margin: 0;
+    }
+
+    > a {
+        position: relative;
+        text-decoration: none;
+        width: max-content;
+    }
+
+    > a::after {
+        position: absolute;
+        content: '➜';
+        right: -2ch;
+    }
+
+    > .image {
+        grid-area: image;
+        position: absolute;
+        right: -1ch;
+        left: 0;
+        top: calc(var(--line-height) * -1/2);
+        bottom: calc(var(--line-height) * -1/2);
+        > img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    > .title {
+        grid-area: title;
+        margin-right: 2ch;
+    }
+
+    > .summary {
+        grid-area: summary;
+        margin-right: 2ch;
+    }
+
+    > .readmore {
+        grid-area: readmore;
+    }
+}
+
+@container (max-width: 70ch) {
+    .featured {
+        padding: var(--line-height) 1ch;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+                "title"
+                "summary"
+                "readmore"
+                "image";
+
+        > .image {
+            position: relative;
+            top: calc(var(--line-height) * 1/2);;
+        }
+
+        > *:not(.image) {
+            margin: 0 1ch;
+        }
+    }
+}

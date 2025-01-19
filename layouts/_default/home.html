@@ -1,5 +1,6 @@
 {{ define "bespokecss" }}
 {{ partial "head/css.html" (dict "filename" "css/list.css") }}
+{{ partial "head/css.html" (dict "filename" "css/home.css") }}
 {{ end }}
 
 {{ define "main" }}
@@ -10,8 +11,15 @@
   <section>
     <h3 class="section-title">Featured Post</h3>
     <article class="featured">
-      <h2 class="title">{{ .Title }}</h2>
-      <p>{{ .Summary }}</p>
+      {{ if .Params.cover }}
+      {{ with or (.Resources.Get .Params.cover) (resources.Get .Params.cover) }}
+      <figure class="image">
+        <img src="{{ .RelPermalink }}">
+      </figure>
+      {{ end }}
+      {{ end }}
+      <h1 class="title">{{ .Title }}</h1>
+      <p class="summary">{{ .Summary }}</p>
       <a class="readmore" href="{{ .RelPermalink }}">read more</a>
     </article>
   </section>

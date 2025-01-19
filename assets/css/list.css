@@ -13,42 +13,6 @@
     margin-bottom: 0;
 }
 
-.hero {
-    margin: calc(2 * var(--line-height)) 0;
-}
-
-.section-title {
-    position: relative;
-    padding-inline: 2ch;
-}
-.section-title:before {
-    position: absolute;
-    content: '▶';
-    left: 0;
-}
-
-.featured {
-    border: var(--border-thickness)solid var(--text-color);
-    display: grid;
-    row-gap: var(--line-height);
-    padding: var(--line-height) 2ch;
-    > a {
-        position: relative;
-        text-decoration: none;
-        width: max-content;
-    }
-
-    > a::after {
-        position: absolute;
-        content: '➜';
-        right: -2ch;
-    }
-}
-
-.featured > * {
-    margin: 0;
-}
-
 .post-stub {
     display: grid;
     column-gap: calc(4 * 1ch);
