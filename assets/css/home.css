@@ -21,6 +21,7 @@ body {
     border: var(--border-thickness)solid var(--text-color);
     display: grid;
     row-gap: var(--line-height);
+    column-gap: 1ch;
     padding: var(--line-height) 2ch;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
@@ -36,6 +37,7 @@ body {
         position: relative;
         text-decoration: none;
         width: max-content;
+        font-weight: bold;
     }
 
     > a::after {
@@ -72,23 +74,45 @@ body {
     }
 }
 
+@container (max-width: 80ch) {
+    .featured {
+        padding: var(--line-height) 2ch;
+        grid-template-columns: 2fr 1fr 2fr;
+        grid-template-areas:
+                "title title title"
+                "summary summary image"
+                ". . image"
+                "readmore . image";
+
+        > .image {
+            position: relative;
+            top: 0;
+        }
+
+        > *:not(.image) {
+            margin: 0;
+        }
+    }
+}
+
 @container (max-width: 70ch) {
     .featured {
-        padding: var(--line-height) 1ch;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+                "title title"
+                "summary image"
+                ". image"
+                "readmore image";
+    }
+}
+
+@container (max-width: 65ch) {
+    .featured {
         grid-template-columns: 1fr;
         grid-template-areas:
                 "title"
                 "summary"
                 "readmore"
                 "image";
-
-        > .image {
-            position: relative;
-            top: calc(var(--line-height) * 1/2);;
-        }
-
-        > *:not(.image) {
-            margin: 0 1ch;
-        }
     }
 }

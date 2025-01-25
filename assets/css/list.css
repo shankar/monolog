@@ -48,7 +48,7 @@
 
 .post-stub > .date {
     grid-area: date;
-    font-weight: 100;
+    font-weight: 200;
 }
 
 .post-stub > .part {
