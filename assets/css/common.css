@@ -174,7 +174,6 @@ table {
 }
 
 :root {
-    --accent-color: var(--blue);
     --background-color: var(--greyscale-11);
     --background-color-alt: var(--greyscale-9) ;
     --text-color: var(--greyscale-0);
@@ -190,8 +189,8 @@ table {
 /* Generated using: hugo gen chromastyles --style=catppuccin-frappe */
 /* Edited to use variables instead of hard coded values */
 
-/* Background */ .bg { color:var(--greyscale-0);background-color:var(--greyscale-9); }
-/* PreWrapper */ .chroma { color:var(--greyscale-0);background-color:var(--greyscale-9); }
+/* Background */ .bg { color:var(--text-color);background-color:var(--background-color-alt); }
+/* PreWrapper */ .chroma { color:var(--text-color);background-color:var(--background-color-alt); }
 /* Other */ .chroma .x {  }
 /* Error */ .chroma .err { color:var(--red) }
 /* CodeLine */ .chroma .cl {  }
@@ -457,13 +456,13 @@ code {
 
 :not(pre) > code {
     padding-inline: 1ch;
-    background: var(--greyscale-9);
+    background: var(--background-color-alt);
     text-wrap: nowrap;
 }
 
 pre:has(samp) {
     padding: 0 2ch var(--line-height) 2ch;
-    background: var(--greyscale-9);
+    background: var(--background-color-alt);
     border-radius: 0.5rem;
 }
 

@@ -1,7 +1,3 @@
-body {
-    container-type: inline-size;
-}
-
 .hero {
     margin: calc(2 * var(--line-height)) 0;
 }
@@ -74,7 +70,7 @@ body {
     }
 }
 
-@container (max-width: 80ch) {
+@media screen and (max-width: 720px) {
     .featured {
         padding: var(--line-height) 2ch;
         grid-template-columns: 2fr 1fr 2fr;
@@ -95,18 +91,7 @@ body {
     }
 }
 
-@container (max-width: 70ch) {
-    .featured {
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas:
-                "title title"
-                "summary image"
-                ". image"
-                "readmore image";
-    }
-}
-
-@container (max-width: 65ch) {
+@media screen and (max-width: 600px) {
     .featured {
         grid-template-columns: 1fr;
         grid-template-areas:
